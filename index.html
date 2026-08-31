@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Jianhua He — Computer Science graduate and software developer portfolio." />
+  <title>Jianhua He | Software Developer</title>
+  <style>
+:root {
+  --bg: #f4f2ec;
+  --surface: #ffffff;
+  --ink: #18201d;
+  --muted: #657069;
+  --line: #d8ddd7;
+  --accent: #1f6b52;
+  --accent-soft: #dfece6;
+  --dark: #17201c;
+  --dark-2: #202b26;
+  --max: 1320px;
+  --radius: 18px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); line-height: 1.65; }
+a { color: inherit; text-decoration: none; }
+h1,h2,h3,p { margin-top: 0; }
+.site-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 17px max(28px, calc((100vw - var(--max))/2)); border-bottom: 1px solid rgba(24,32,29,.08); background: rgba(244,242,236,.92); backdrop-filter: blur(14px); }
+.brand { font-size: 20px; font-weight: 700; color: var(--accent); }
+.nav { display: flex; gap: 36px; font-size: 14px; color: #242b28; }
+.nav a:hover { color: var(--accent); }
+.nav-toggle { display: none; border: 0; background: none; font-size: 24px; }
+.section-shell { width: min(var(--max), calc(100% - 64px)); margin: 0 auto; }
+.section { padding: 92px 0; }
+.eyebrow { margin: 0 0 14px; color: var(--accent); font-size: 12px; letter-spacing: .16em; font-weight: 700; }
+
+/* About */
+.about-shell { padding: 58px 0 78px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(480px, .92fr); gap: 56px; align-items: start; }
+.about-left { padding-top: 8px; }
+.about-left > h1 { margin-bottom: 22px; font-size: clamp(42px, 4.2vw, 62px); line-height: 1.02; letter-spacing: -.035em; }
+.about-intro { max-width: 760px; margin-bottom: 24px; font-size: 18.5px; line-height: 1.82; color: #313a36; }
+.about-right { display: grid; gap: 22px; }
+.profile-card { padding: 28px 30px; border: 1px solid var(--line); border-radius: 22px; background: rgba(255,255,255,.7); box-shadow: 0 14px 42px rgba(36,44,40,.07); }
+.profile-top { display: grid; grid-template-columns: 132px 1fr; gap: 28px; align-items: start; }
+.avatar { width: 118px; height: 118px; border-radius: 50%; display: grid; place-items: center; background: var(--dark); color: white; font-family: "Source Serif 4", Georgia, serif; font-size: 42px; }
+.profile-fields { min-width: 0; }
+.profile-line { display: flex; justify-content: space-between; gap: 18px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.profile-line span { color: var(--muted); }
+.profile-line strong { text-align: right; }
+.profile-status { margin-top: 18px; font-size: 14px; color: var(--muted); white-space: nowrap; }
+.profile-status i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #36a36f; margin-right: 8px; }
+.expertise-panel { padding: 0 8px; }
+.expertise-panel > h2 { margin: 2px 0 14px; font-size: 19px; letter-spacing: .01em; }
+.compact-expertise { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px 26px; }
+.expertise-card { min-height: 142px; padding: 10px 8px 10px 16px; border-left: 3px solid var(--accent); display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: start; }
+.expertise-icon { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-size: 14px; font-weight: 700; }
+.expertise-card h3 { margin: 0 0 5px; font-size: 15px; }
+.expertise-card p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.65; }
+
+/* Additional Experience */
+.additional-experience { margin-top: 42px; padding-top: 28px; border-top: 1px solid var(--line); }
+.additional-experience > h2 { margin-bottom: 18px; font-size: 30px; letter-spacing: -.02em; }
+.experience-list { display: grid; gap: 18px; }
+.experience-item { position: relative; padding-left: 18px; }
+.experience-item::before { content: ""; position: absolute; left: 0; top: 10px; width: 5px; height: 5px; border-radius: 50%; background: var(--ink); }
+.experience-heading { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.experience-heading h3 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-size: 18px; }
+.experience-heading span { color: #b64031; font-family: "Source Serif 4", Georgia, serif; font-size: 14px; }
+.experience-item p { margin: 5px 0 0; color: #505a55; font-family: "Source Serif 4", Georgia, serif; font-size: 15px; line-height: 1.65; }
+
+
+/* Projects */
+.projects-section { background: #f1f3ef; }
+.projects-header { display:flex; justify-content:space-between; gap:24px; align-items:end; padding-bottom:20px; border-bottom:1px solid var(--line); margin-bottom:26px; }
+.projects-header .section-heading { margin-bottom:0; }
+.projects-year { font-size:28px; font-weight:700; color:var(--ink); }
+.project-list { display:grid; gap:0; }
+.project-row { display:grid; grid-template-columns:minmax(280px, 36%) 1fr; gap:34px; align-items:center; padding:28px 0; border-bottom:1px solid var(--line); }
+.project-visual { min-height:210px; border-radius:14px; overflow:hidden; border:1px solid #d5dbd5; background:#fff; box-shadow:0 8px 24px rgba(24,32,29,.06); }
+.browser-mock { height:100%; min-height:210px; display:grid; grid-template-rows:34px 1fr; background:linear-gradient(135deg,#dfece6,#f9fbf9); }
+.browser-bar { display:flex; align-items:center; gap:7px; padding:0 12px; background:#f4f5f3; border-bottom:1px solid #d9ded9; }
+.browser-dot { width:8px; height:8px; border-radius:50%; background:#aab4ae; }
+.browser-body { padding:22px; display:grid; grid-template-columns:34% 1fr; gap:16px; }
+.mock-card { border-radius:10px; background:#fff; border:1px solid #dbe0db; min-height:120px; }
+.mock-lines { display:grid; gap:10px; align-content:start; padding-top:6px; }
+.mock-line { height:10px; border-radius:999px; background:#c8d9d1; }
+.mock-line.short { width:62%; }
+.mock-line.medium { width:82%; }
+.ds-visual { min-height:210px; display:grid; place-items:center; background:linear-gradient(135deg,#eef2ee,#ffffff); position:relative; }
+.ds-tree { position:relative; width:82%; height:150px; }
+.ds-node { position:absolute; width:46px; height:46px; border-radius:50%; display:grid; place-items:center; background:var(--dark); color:#fff; font-weight:700; box-shadow:0 6px 16px rgba(23,32,28,.12); z-index:2; }
+.ds-line { position:absolute; height:2px; background:#88a99b; transform-origin:left center; z-index:1; }
+.ds-node.n1{left:50%;top:0;transform:translateX(-50%)} .ds-node.n2{left:18%;top:82px}.ds-node.n3{right:18%;top:82px}.ds-node.n4{left:0;top:128px}.ds-node.n5{left:34%;top:128px}.ds-node.n6{right:34%;top:128px}.ds-node.n7{right:0;top:128px}
+.ds-line.l1{left:50%;top:42px;width:34%;transform:rotate(145deg)} .ds-line.l2{left:50%;top:42px;width:34%;transform:rotate(35deg)}
+.ds-line.l3{left:22%;top:116px;width:22%;transform:rotate(155deg)} .ds-line.l4{left:22%;top:116px;width:20%;transform:rotate(25deg)}
+.ds-line.l5{right:22%;top:116px;width:20%;transform:rotate(155deg);transform-origin:right center}.ds-line.l6{right:22%;top:116px;width:22%;transform:rotate(25deg);transform-origin:right center}
+.project-copy .project-kicker { margin:0 0 8px; color:var(--accent); font-weight:700; font-size:13px; }
+.project-copy h3 { margin:0 0 10px; font-family:"Source Serif 4", Georgia, serif; font-size:26px; line-height:1.15; }
+.project-copy p { margin:0; color:#4f5954; font-size:15.5px; line-height:1.75; }
+.project-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.project-tags span { padding:6px 10px; border:1px solid var(--line); background:rgba(255,255,255,.72); border-radius:999px; font-size:12px; }
+@media (max-width: 820px) { .project-row { grid-template-columns:1fr; } .projects-header { align-items:start; flex-direction:column; } }
+
+/* General sections */
+.section-heading { margin-bottom: 42px; }
+.section-heading h2 { margin-bottom: 0; font-family: "Source Serif 4", Georgia, serif; font-size: clamp(38px, 5vw, 58px); line-height: 1; letter-spacing: -.02em; }
+.section-muted { background: #e9ece7; }
+.timeline { display: grid; grid-template-columns: 64px 1fr; gap: 26px; max-width: 850px; }
+.timeline-marker { width: 52px; height: 52px; border-radius: 14px; background: white; display: grid; place-items: center; font-size: 24px; }
+.timeline-content { padding-bottom: 24px; border-bottom: 1px solid #cfd5cf; }
+.timeline-topline { display: flex; justify-content: space-between; gap: 30px; align-items: baseline; }
+.timeline-topline h3 { font-size: 28px; margin-bottom: 4px; }
+.timeline-topline span { color: var(--muted); font-weight: 600; }
+.timeline-subtitle { color: var(--accent); font-weight: 600; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.tag-row span, .skill-pills span { padding: 7px 11px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.7); font-size: 12px; }
+.skills-layout { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.skill-group { padding: 24px; border-top: 1px solid var(--line); }
+.skill-group h3 { margin-bottom: 16px; }
+.skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.section-dark { background: var(--dark); color: #f2f4f2; }
+.section-heading.light .eyebrow { color: #9bd6bc; }
+.section-heading.light h2 { color: white; }
+.experience-card { padding: 30px; background: var(--dark-2); border: 1px solid #34423b; border-radius: var(--radius); }
+.experience-meta { display: flex; justify-content: space-between; gap: 20px; color: #aebbb4; font-size: 13px; margin-bottom: 22px; }
+.experience-card ul { margin: 0; padding-left: 20px; color: #d9dfdb; }
+.experience-card li + li { margin-top: 10px; }
+.strength-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 18px; }
+.strength-card { padding: 24px; border: 1px solid #34423b; border-radius: var(--radius); }
+.strength-card h3 { margin-bottom: 10px; }
+.strength-card p { margin-bottom: 0; color: #aebbb4; font-size: 14px; }
+.contact-section { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: end; }
+.contact-copy h2 { font-family: "Source Serif 4", Georgia, serif; font-size: clamp(42px,5vw,64px); margin-bottom: 18px; }
+.contact-copy p { color: var(--muted); }
+.contact-links { display: grid; gap: 12px; }
+.contact-links a { display: flex; justify-content: space-between; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.contact-links span { color: var(--muted); }
+.contact-links strong { text-align: right; }
+footer { width: min(var(--max), calc(100% - 64px)); margin: 0 auto; padding: 24px 0 42px; display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 1040px) {
+  .about-shell { grid-template-columns: 1fr; }
+  .about-right { max-width: 760px; }
+  .profile-status { white-space: normal; }
+}
+@media (max-width: 820px) {
+  .site-header { padding-left: 24px; padding-right: 24px; }
+  .nav-toggle { display: block; }
+  .nav { position: absolute; top: 64px; left: 18px; right: 18px; display: none; flex-direction: column; gap: 0; padding: 10px; background: #f7f6f2; border: 1px solid var(--line); border-radius: 14px; }
+  .nav.open { display: flex; }
+  .nav a { padding: 12px; }
+  .compact-expertise, .skills-layout, .strength-grid, .contact-section { grid-template-columns: 1fr; }
+  .section { padding: 72px 0; }
+  .timeline { grid-template-columns: 1fr; }
+  .profile-top { grid-template-columns: 110px 1fr; }
+  .avatar { width: 96px; height: 96px; font-size: 34px; }
+}
+@media (max-width: 560px) {
+  .section-shell { width: min(100% - 30px, var(--max)); }
+  .about-shell { padding-top: 40px; gap: 34px; }
+  .about-intro { font-size: 16px; }
+  .profile-top { grid-template-columns: 1fr; }
+  .profile-line, .timeline-topline, .experience-meta, .contact-links a, footer { flex-direction: column; }
+  .profile-line strong, .contact-links strong { text-align: left; }
+  .expertise-card { grid-template-columns: 40px 1fr; }
+}
+
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#about">Jianhua He</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#background">Background</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="about-shell section-shell">
+      <div class="about-left reveal">
+        <h1>About Me</h1>
+        <p class="about-intro">
+          I am a Computer Science graduate from Rutgers University with a broad interest in software development,
+          web technologies, and data analysis. My technical background includes Java, C, C++, Python, HTML, and
+          JavaScript, along with a solid foundation in object-oriented programming, data structures, algorithms,
+          and problem solving.
+        </p>
+        <p class="about-intro">
+          Beyond academic coursework, I have experience helping others build and improve websites based on their needs.
+          This experience involved understanding requirements, troubleshooting technical issues, making iterative
+          improvements, and communicating with others throughout the development process.
+        </p>
+        <p class="about-intro">
+          I enjoy exploring new technologies and solving practical problems through a combination of programming,
+          independent research, and collaboration. I also use AI tools as part of my development workflow for technical
+          research, debugging, code analysis, and improving productivity.
+        </p>
+
+        <section class="additional-experience" aria-labelledby="additional-title">
+          <h2 id="additional-title">Additional Experience</h2>
+          <div class="experience-list compact-list">
+            <article class="experience-item">
+              <div class="experience-heading">
+                <h3>Web Development</h3>
+                <span>HTML / JavaScript</span>
+              </div>
+              <p>
+                Build and maintain websites based on individual requirements, with experience organizing page structure,
+                implementing functionality, troubleshooting issues, and refining websites through feedback.
+              </p>
+            </article>
+            <article class="experience-item">
+              <div class="experience-heading">
+                <h3>Data Structures &amp; Algorithms</h3>
+                <span>Problem Solving</span>
+              </div>
+              <p>
+                Strong academic foundation in data structures and algorithms, with experience applying structured and
+                efficient approaches to programming problems, debugging, and code improvement.
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <div class="about-right">
+        <aside class="profile-card reveal" aria-label="Profile summary">
+          <div class="profile-top">
+            <div class="avatar" aria-hidden="true">JH</div>
+            <div class="profile-fields">
+              <div class="profile-line"><span>Focus</span><strong>Software Development</strong></div>
+              <div class="profile-line"><span>Education</span><strong>Rutgers University</strong></div>
+              <div class="profile-line"><span>English</span><strong>Fluent</strong></div>
+              <div class="profile-line"><span>Chinese</span><strong>Native</strong></div>
+              <div class="profile-status"><i></i> Open to software engineering opportunities</div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="expertise-panel reveal" aria-labelledby="expertise-title">
+          <h2 id="expertise-title">CORE EXPERTISE</h2>
+          <div class="expertise-grid compact-expertise">
+            <article class="expertise-card">
+              <div class="expertise-icon">&lt;/&gt;</div>
+              <div>
+                <h3>Software Development</h3>
+                <p>Experience across Java, C, C++, and Python with foundations in OOP, data structures, algorithms, debugging, and problem solving.</p>
+              </div>
+            </article>
+            <article class="expertise-card">
+              <div class="expertise-icon">◎</div>
+              <div>
+                <h3>Web Development</h3>
+                <p>Experience building and improving websites with HTML, JavaScript, structured page layouts, functionality, and troubleshooting.</p>
+              </div>
+            </article>
+            <article class="expertise-card">
+              <div class="expertise-icon">▥</div>
+              <div>
+                <h3>Data Analysis</h3>
+                <p>Basic MATLAB proficiency with experience in numerical computation, data processing, analysis, and visualization.</p>
+              </div>
+            </article>
+            <article class="expertise-card">
+              <div class="expertise-icon">AI</div>
+              <div>
+                <h3>AI-Assisted Development</h3>
+                <p>Use AI tools for coding, debugging, technical research, code analysis, and improving development workflows and productivity.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="background" class="section section-muted">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">BACKGROUND</p>
+          <h2>Education</h2>
+        </div>
+        <div class="timeline reveal">
+          <div class="timeline-marker">🎓</div>
+          <div class="timeline-content">
+            <div class="timeline-topline">
+              <h3>Rutgers University</h3>
+              <span>2026</span>
+            </div>
+            <p class="timeline-subtitle">Computer Science</p>
+            <p>
+              Built a strong academic foundation in object-oriented programming, data structures,
+              algorithms, software development, debugging, and technical problem solving.
+            </p>
+            <div class="tag-row">
+              <span>OOP</span><span>Data Structures</span><span>Algorithms</span><span>Software Development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="projects" class="section projects-section">
+      <div class="section-shell">
+        <div class="projects-header reveal">
+          <div class="section-heading">
+            <p class="eyebrow">PROJECTS</p>
+            <h2>Projects</h2>
+          </div>
+          <div class="projects-year">2026</div>
+        </div>
+
+        <div class="project-list">
+          <article class="project-row reveal">
+            <div class="project-visual browser-mock" aria-hidden="true">
+              <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
+              <div class="browser-body">
+                <div class="mock-card"></div>
+                <div class="mock-lines"><div class="mock-line"></div><div class="mock-line medium"></div><div class="mock-line short"></div><div class="mock-card"></div></div>
+              </div>
+            </div>
+            <div class="project-copy">
+              <p class="project-kicker">Web Development · Placeholder Project</p>
+              <h3>Website Development</h3>
+              <p>Placeholder for a web development project focused on turning individual requirements into a structured, functional website. This space can later be replaced with a specific project, technologies used, screenshots, and measurable outcomes.</p>
+              <div class="project-tags"><span>HTML</span><span>JavaScript</span><span>Website Structure</span><span>Debugging</span></div>
+            </div>
+          </article>
+
+          <article class="project-row reveal">
+            <div class="project-visual ds-visual" aria-hidden="true">
+              <div class="ds-tree">
+                <span class="ds-line l1"></span><span class="ds-line l2"></span><span class="ds-line l3"></span><span class="ds-line l4"></span><span class="ds-line l5"></span><span class="ds-line l6"></span>
+                <span class="ds-node n1">A</span><span class="ds-node n2">B</span><span class="ds-node n3">C</span><span class="ds-node n4">D</span><span class="ds-node n5">E</span><span class="ds-node n6">F</span><span class="ds-node n7">G</span>
+              </div>
+            </div>
+            <div class="project-copy">
+              <p class="project-kicker">Computer Science · Placeholder Project</p>
+              <h3>Data Structures &amp; Algorithms</h3>
+              <p>Placeholder for a data structures project demonstrating structured problem solving, algorithm design, debugging, and code improvement. This area can later be expanded with a specific assignment or application and its implementation details.</p>
+              <div class="project-tags"><span>Data Structures</span><span>Algorithms</span><span>Problem Solving</span><span>OOP</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section-shell section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">TECHNICAL SKILLS</p>
+        <h2>Tools &amp; technologies</h2>
+      </div>
+      <div class="skills-layout">
+        <div class="skill-group reveal">
+          <h3>Programming</h3>
+          <div class="skill-pills">
+            <span>Java</span><span>C</span><span>C++</span><span>Python</span><span>JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Web</h3>
+          <div class="skill-pills">
+            <span>HTML</span><span>JavaScript</span><span>Website Structure</span><span>Debugging</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Data &amp; AI</h3>
+          <div class="skill-pills">
+            <span>MATLAB · Basic</span><span>Data Analysis</span><span>Data Processing</span><span>Visualization</span><span>Generative AI</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Additional Software</h3>
+          <div class="skill-pills">
+            <span>Blender · Basic</span><span>Cinema 4D · Basic</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section section-dark">
+      <div class="section-shell">
+        <div class="section-heading light reveal">
+          <p class="eyebrow">EXPERIENCE</p>
+          <h2>Independent Web Development</h2>
+        </div>
+        <div class="experience-card reveal">
+          <div class="experience-meta">
+            <span>Web Development</span>
+            <span>Independent</span>
+          </div>
+          <ul>
+            <li>Assisted others with creating and developing websites based on individual requirements and feedback.</li>
+            <li>Worked with HTML and JavaScript to support page structure, functionality, and interactive features.</li>
+            <li>Identified and troubleshot technical issues during the development process.</li>
+            <li>Used AI-assisted development tools to research solutions, analyze code, debug issues, and improve development efficiency.</li>
+            <li>Communicated and collaborated with others to understand requirements, coordinate changes, and incorporate feedback.</li>
+          </ul>
+        </div>
+        <div class="strength-grid">
+          <article class="strength-card reveal"><h3>Team Collaboration</h3><p>Comfortable discussing technical problems, coordinating tasks, sharing ideas, and incorporating feedback in collaborative environments.</p></article>
+          <article class="strength-card reveal"><h3>Problem Solving</h3><p>Strong independent research and troubleshooting habits, with a structured approach to diagnosing and resolving technical issues.</p></article>
+          <article class="strength-card reveal"><h3>Continuous Learning</h3><p>Motivated to learn new programming languages, frameworks, development tools, and professional software engineering practices.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-shell section contact-section">
+      <div class="contact-copy reveal">
+        <p class="eyebrow">CONTACT</p>
+        <h2>Let’s build something useful.</h2>
+        <p>I’m open to software engineering and development opportunities.</p>
+      </div>
+      <div class="contact-links reveal">
+        <a href="mailto:hjh23710@gmail.com"><span>Email</span><strong>hjh23710@gmail.com</strong></a>
+        <a href="tel:+16072078716"><span>Phone</span><strong>607-207-8716</strong></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Jianhua He</span>
+    <span>Software Development · Computer Science</span>
+  </footer>
+  <script>
+const toggle = document.querySelector('.nav-toggle');
+const nav = document.querySelector('.nav');
+
+toggle?.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(open));
+});
+
+document.querySelectorAll('.nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+  });
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  </script>
+</body>
+</html>
